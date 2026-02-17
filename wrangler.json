@@ -9,9 +9,12 @@
     "binding": "ASSETS",
     "directory": ".open-next/assets"
   },
+  "routes": [
+    { "pattern": "qaldas.com", "custom_domain": true }
+  ],
   "kv_namespaces": [
     {
-      "binding": "qaldaskv",
+      "binding": "NEXT_CACHE_WORKERS_KV",
       "id": "958125bf13cf40dc8ac9606343a85276"
     }
   ]
