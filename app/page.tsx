@@ -21,17 +21,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-24">
                 <div className="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
-                    <div className="w-10 h-10 rounded-none border border-primary flex items-center justify-center text-primary font-bold text-xl relative overflow-hidden shadow-neon group-hover:bg-primary group-hover:text-black transition-all duration-300">
-                        <span className="z-10 relative">Q</span>
-                        <div className="absolute inset-0 bg-primary/20 transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-                    </div>
-                    <span className="font-display font-bold text-2xl tracking-widest text-white uppercase">Qaldas</span>
+             
+                    <span className="font-kyiv font-bold text-2xl tracking-widest text-white uppercase">Qaldas</span>
+
                 </div>
                 <div className="hidden md:flex space-x-10 items-center">
-                    <a className="text-sm font-medium text-gray-400 hover:text-primary transition-colors tracking-wide uppercase" href="#">About</a>
+                    {/* <a className="text-sm font-medium text-gray-400 hover:text-primary transition-colors tracking-wide uppercase" href="#">About</a>
                     <a className="text-sm font-medium text-gray-400 hover:text-primary transition-colors tracking-wide uppercase" href="#">Research</a>
                     <a className="text-sm font-medium text-gray-400 hover:text-primary transition-colors tracking-wide uppercase" href="#">Education</a>
-                    <a className="text-sm font-medium text-gray-400 hover:text-primary transition-colors tracking-wide uppercase" href="#">Solutions</a>
+                    <a className="text-sm font-medium text-gray-400 hover:text-primary transition-colors tracking-wide uppercase" href="#">Solutions</a> */}
                     <div className="flex items-center border border-primary/30 rounded-none px-3 py-1 text-xs font-semibold bg-black-surface">
                         <span className="px-2 text-primary cursor-pointer text-shadow-neon">EN</span>
                         <span className="text-gray-600">|</span>
@@ -59,7 +57,7 @@ export default function Home() {
             <div className="lg:w-full relative z-10">
                 <div className="inline-flex items-center gap-3 px-4 py-1.5 border-l-2 border-primary bg-gradient-to-r from-primary/10 to-transparent text-primary text-xs font-mono mb-8 tracking-widest animate-glitch">
                     <span className="w-1.5 h-1.5 bg-primary shadow-[0_0_10px_#00ff41] animate-pulse"></span>
-                    <span>NODE CONNECTED: <span className="text-white">LIVE_STREAM</span></span>
+                    {/* <span>NODE CONNECTED: <span className="text-white">LIVE_STREAM</span></span> */}
                 </div>
                 <h1 className="font-display text-6xl sm:text-7xl lg:text-8xl font-bold leading-[0.9] mb-8 text-white tracking-tight drop-shadow-2xl">
                     Solving Community-Centered Challenges with Innovation from <br/>
@@ -80,13 +78,10 @@ export default function Home() {
                         <span className="absolute top-0 left-0 w-2 h-2 border-l-2 border-t-2 border-black-main"></span>
                         <span className="absolute bottom-0 right-0 w-2 h-2 border-r-2 border-b-2 border-black-main"></span>
                     </a>
-                    <a className="group inline-flex items-center justify-center px-8 py-5 border border-primary/30 text-white font-mono text-sm hover:border-primary hover:bg-primary/5 transition-all duration-300 clip-corner uppercase tracking-widest backdrop-blur-sm" href="#">
-                        <span className="mr-3 text-primary group-hover:animate-pulse">&gt;&gt;&gt;</span>
-                        Explore Architecture
-                    </a>
+                  
                 </div>
                 
-                <div className="mt-16 grid grid-cols-3 gap-8 border-t border-white/10 pt-8 max-w-lg">
+                {/* <div className="mt-16 grid grid-cols-3 gap-8 border-t border-white/10 pt-8 max-w-lg">
                     <div>
                         <div className="text-3xl font-display font-bold text-white mb-1">50<span className="text-primary text-lg">+</span></div>
                         <div className="text-xs text-gray-500 uppercase tracking-wider">Qubits Active</div>
@@ -99,7 +94,7 @@ export default function Home() {
                         <div className="text-3xl font-display font-bold text-white mb-1">Lat<span className="text-primary text-lg">Am</span></div>
                         <div className="text-xs text-gray-500 uppercase tracking-wider">Region Focus</div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>  
       </Hero>
