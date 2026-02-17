@@ -11,8 +11,8 @@
   },
   "kv_namespaces": [
     {
-      "binding": "NEXT_CACHE_WORKERS_KV",
-      "id": "REPLACE_WITH_YOUR_KV_ID"
+      "binding": "qaldaskv",
+      "id": "958125bf13cf40dc8ac9606343a85276"
     }
   ]
 }
