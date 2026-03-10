@@ -61,8 +61,6 @@ async function verifyPassword(hashString: string, password: string): Promise<boo
   return newHashHex === hashHex;
 }
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function registerUser(formData: FormData) {
   const name = formData.get("name");
   const email = formData.get("email");
@@ -104,14 +102,22 @@ export async function registerUser(formData: FormData) {
 
     // Send Welcome Email asynchronously
     try {
-      const firstName = name.split(" ")[0];
-      await resend.emails.send({
-        from: 'Qaldas <onboarding@qaldas.com>',
-        to: [email],
-        subject: 'Welcome to Qaldas!',
-        // @ts-expect-error - Incompatibilidad de tipos entre React 19 y Resend
-        react: WelcomeEmail({ firstName }),
-      });
+      // Create resend instance inside the request to ensure process.env / bindings are loaded contextually
+      const ctx = await getCloudflareContext({ async: true }) as any;
+      const resendApiKey = process.env.RESEND_API_KEY || ctx?.env?.RESEND_API_KEY;
+      if (resendApiKey) {
+        const resend = new Resend(resendApiKey);
+        const firstName = name.split(" ")[0];
+        await resend.emails.send({
+          from: 'Qaldas <onboarding@qaldas.com>',
+          to: [email],
+          subject: 'Welcome to Qaldas!',
+          // @ts-expect-error - Incompatibilidad de tipos entre React 19 y Resend
+          react: WelcomeEmail({ firstName }),
+        });
+      } else {
+        console.warn("Missing RESEND_API_KEY, skipping welcome email");
+      }
     } catch (emailError) {
       // We don't want to break the registration process if email fails
       console.error("Failed to send welcome email:", emailError);
