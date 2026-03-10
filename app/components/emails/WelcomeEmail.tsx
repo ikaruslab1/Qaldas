@@ -24,16 +24,16 @@ export const WelcomeEmail: React.FC<Readonly<WelcomeEmailProps>> = ({
     }}>
       <div style={{ textAlign: 'center', marginBottom: '30px' }}>
         <h1 style={{ margin: 0, fontSize: '28px', fontWeight: 'bold', color: '#fff' }}>
-          Bienvenido a <span style={{ color: '#fedd00' }}>Qaldas</span>
+          Welcome to <span style={{ color: '#fedd00' }}>Qaldas</span>
         </h1>
       </div>
       
       <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#a3a3a3', marginTop: 0 }}>
-        Hola <strong style={{ color: '#fff' }}>{firstName}</strong>,
+        Hello <strong style={{ color: '#fff' }}>{firstName}</strong>,
       </p>
       
       <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#a3a3a3' }}>
-        Estamos encantados de tenerte con nosotros. Has completado exitosamente tu registro en nuestra plataforma de vanguardia.
+        We are thrilled to have you with us. You have successfully completed your registration on our cutting-edge platform.
       </p>
 
       <div style={{ 
@@ -44,17 +44,17 @@ export const WelcomeEmail: React.FC<Readonly<WelcomeEmailProps>> = ({
         margin: '32px 0' 
       }}>
         <p style={{ margin: 0, color: '#e5e5e5', fontSize: '15px' }}>
-          Ya puedes acceder a tu perfil y configurar tu espacio de trabajo para comenzar a conectar y crecer en la red académica de Qaldas.
+          You can now access your profile and configure your workspace to start connecting and growing in the Qaldas academic network.
         </p>
       </div>
 
       <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#a3a3a3' }}>
-        Si tienes alguna pregunta, no dudes en responder a este correo.
+        If you have any questions, feel free to reply to this email.
       </p>
 
       <div style={{ marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #333', textAlign: 'center' }}>
         <p style={{ fontSize: '12px', color: '#666', margin: 0 }}>
-          &copy; {new Date().getFullYear()} Qaldas. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Qaldas. All rights reserved.
         </p>
         <p style={{ fontSize: '12px', color: '#666', marginTop: '8px' }}>
           Mérida, Yucatán, México

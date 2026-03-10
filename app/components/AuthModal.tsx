@@ -36,12 +36,12 @@ export default function AuthModal({
         const errors: { email?: string, password?: string } = {};
 
         if (email !== confirmEmail) {
-          errors.email = "El correo y la confirmación deben coincidir.";
+          errors.email = "Email and confirmation must match.";
           hasError = true;
         }
 
         if (pass !== confirmPass) {
-          errors.password = "La contraseña y la confirmación deben coincidir.";
+          errors.password = "Password and confirmation must match.";
           hasError = true;
         }
 
@@ -64,7 +64,7 @@ export default function AuthModal({
         setMessage({ type: 'error', text: result.error });
       } else if (result.success) {
         if (!isLogin) {
-          setMessage({ type: 'success', text: 'Registro exitoso. Revisa tu correo electrónico para un mensaje de bienvenida.' });
+          setMessage({ type: 'success', text: 'Registration successful. Check your email for a welcome message.' });
           setTimeout(() => {
             window.location.reload(); 
           }, 3000);

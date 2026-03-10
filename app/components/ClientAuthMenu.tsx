@@ -30,7 +30,7 @@ export default function ClientAuthMenu({ user }: { user: UserType }) {
           {/* Decorative Corner Lines */}
           <span className="absolute top-0 left-0 w-1.5 h-1.5 border-l-2 border-t-2 border-primary group-hover:border-black-main"></span>
           <span className="absolute bottom-0 right-0 w-1.5 h-1.5 border-r-2 border-b-2 border-primary group-hover:border-black-main"></span>
-          Ingresar
+          Sign In
           <span className="material-symbols-outlined text-lg ml-2 group-hover:translate-x-1 transition-transform">login</span>
         </button>
 
@@ -57,20 +57,20 @@ export default function ClientAuthMenu({ user }: { user: UserType }) {
       <div className="absolute right-0 mt-0 w-48 bg-black-main border border-primary/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
         <div className="absolute -top-[1px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent"></div>
         <div className="p-3">
-          <p className="text-[10px] uppercase text-primary/50 tracking-widest mb-1 border-b border-primary/20 pb-1">Identidad Activa</p>
+          <p className="text-[10px] uppercase text-primary/50 tracking-widest mb-1 border-b border-primary/20 pb-1">Active Identity</p>
           <p className="text-white text-xs truncate max-w-full">{user.email}</p>
         </div>
         <ul className="flex flex-col text-sm border-t border-primary/10">
           <li>
             <a href="/profile" className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-primary/10 hover:border-l-2 hover:border-primary transition-all">
               <span className="material-symbols-outlined text-[16px]">admin_panel_settings</span>
-              Analíticas & Perfil
+              Analytics & Profile
             </a>
           </li>
           <li className="border-t border-primary/10">
             <button onClick={handleLogout} className="w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-red-400 hover:bg-red-500/10 hover:border-l-2 hover:border-red-500 transition-all text-left">
               <span className="material-symbols-outlined text-[16px]">logout</span>
-              Cerrar Conexión
+              Disconnect
             </button>
           </li>
         </ul>

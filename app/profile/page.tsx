@@ -55,7 +55,7 @@ export default async function ProfilePage() {
               </div>
 
               <div className="text-center space-y-2 mb-8">
-                <h1 className="font-display text-2xl font-bold text-white tracking-widest uppercase">{user.name || 'Operario Autónomo'}</h1>
+                <h1 className="font-display text-2xl font-bold text-white tracking-widest uppercase">{user.name || 'Autonomous Operative'}</h1>
                 <p className="text-primary font-mono text-sm">{user.email}</p>
               </div>
 
@@ -94,7 +94,7 @@ export default async function ProfilePage() {
               </div>
 
               <div>
-                <h2 className="font-display text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 mb-2 uppercase tracking-tight">Panel de Mando</h2>
+                <h2 className="font-display text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 mb-2 uppercase tracking-tight">Command Panel</h2>
                 <div className="h-[1px] w-24 bg-primary mb-10 shadow-neon"></div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -102,10 +102,10 @@ export default async function ProfilePage() {
                   <div className="p-6 bg-black border border-white/5 hover:border-primary/40 transition-colors group/card relative overflow-hidden">
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover/card:opacity-100 transition-opacity"></div>
                     <span className="material-symbols-outlined text-primary mb-4 text-3xl">terminal</span>
-                    <h3 className="text-lg font-bold text-white mb-2 font-display">Conexión de Nodos</h3>
-                    <p className="text-xs text-gray-400 leading-relaxed font-light">Acceso a simuladores cuánticos y terminales de integración. Interfaz restringida a la red local.</p>
+                    <h3 className="text-lg font-bold text-white mb-2 font-display">Node Connection</h3>
+                    <p className="text-xs text-gray-400 leading-relaxed font-light">Access to quantum simulators and integration terminals. Restricted interface for the local network.</p>
                     <div className="mt-4 flex items-center gap-2 text-xs text-primary font-mono opacity-0 group-hover/card:opacity-100 transition-opacity transform translate-y-2 group-hover/card:translate-y-0">
-                      <span>INICIAR</span> <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                      <span>INITIATE</span> <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                     </div>
                   </div>
 
@@ -113,10 +113,10 @@ export default async function ProfilePage() {
                   <div className="p-6 bg-black border border-white/5 hover:border-primary/40 transition-colors group/card relative overflow-hidden">
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover/card:opacity-100 transition-opacity"></div>
                     <span className="material-symbols-outlined text-primary mb-4 text-3xl">psychology</span>
-                    <h3 className="text-lg font-bold text-white mb-2 font-display">Algoritmos IAM</h3>
-                    <p className="text-xs text-gray-400 leading-relaxed font-light">Supervisión de redes de Deep Learning en activo. Parámetros de autoajuste y pesos convolucionales.</p>
+                    <h3 className="text-lg font-bold text-white mb-2 font-display">IAM Algorithms</h3>
+                    <p className="text-xs text-gray-400 leading-relaxed font-light">Supervision of active Deep Learning networks. Auto-tuning parameters and convolutional weights.</p>
                     <div className="mt-4 flex items-center gap-2 text-xs text-primary font-mono opacity-0 group-hover/card:opacity-100 transition-opacity transform translate-y-2 group-hover/card:translate-y-0">
-                      <span>MONITOREAR</span> <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                      <span>MONITOR</span> <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                     </div>
                   </div>
                 </div>
