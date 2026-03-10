@@ -17,5 +17,13 @@
       "binding": "NEXT_CACHE_WORKERS_KV",
       "id": "958125bf13cf40dc8ac9606343a85276"
     }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "qaldas-db",
+      "database_id": "f6514bb4-6a1b-40cb-970e-63c4ead25cd0",
+      "migrations_dir": "migrations"
+    }
   ]
 }
