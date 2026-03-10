@@ -6,11 +6,16 @@ import { cookies } from "next/headers";
 import { initializeLucia } from "@/lib/auth";
 import { generateIdFromEntropySize } from "lucia";
 
+import { Resend } from "resend";
+import WelcomeEmail from "@/app/components/emails/WelcomeEmail";
+
 // Helper function to safely get our Cloudflare bindings
 async function getDB() {
   const { env } = await getCloudflareContext({ async: true }) as unknown as { env: { DB: D1Database } };
   return env.DB;
 }
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function registerUser(formData: FormData) {
   const name = formData.get("name");
@@ -53,7 +58,21 @@ export async function registerUser(formData: FormData) {
     // @ts-ignore
     cookieStore.set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 
-    return { success: true };
+    // Send Welcome Email asynchronously
+    try {
+      const firstName = name.split(" ")[0];
+      await resend.emails.send({
+        from: 'Qaldas <onboarding@qaldas.com>',
+        to: [email],
+        subject: '¡Bienvenido a Qaldas!',
+        react: WelcomeEmail({ firstName }),
+      });
+    } catch (emailError) {
+      // We don't want to break the registration process if email fails
+      console.error("Failed to send welcome email:", emailError);
+    }
+
+    return { success: true, emailSent: true };
   } catch (error) {
     console.error("Error registering user: ", error);
     return { error: "Error al registrar el usuario, por favor intenta de nuevo." };

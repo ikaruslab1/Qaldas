@@ -63,8 +63,15 @@ export default function AuthModal({
       if (result.error) {
         setMessage({ type: 'error', text: result.error });
       } else if (result.success) {
-        setMessage({ type: 'success', text: isLogin ? 'Welcome back...' : 'Registration successful...' });
-        window.location.reload(); 
+        if (!isLogin) {
+          setMessage({ type: 'success', text: 'Registro exitoso. Revisa tu correo electrónico para un mensaje de bienvenida.' });
+          setTimeout(() => {
+            window.location.reload(); 
+          }, 3000);
+        } else {
+          setMessage({ type: 'success', text: 'Welcome back...' });
+          window.location.reload(); 
+        }
       }
     });
   }

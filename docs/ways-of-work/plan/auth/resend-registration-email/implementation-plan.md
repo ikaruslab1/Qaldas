@@ -2,13 +2,13 @@
 goal: Implement Resend to send a registration confirmation email when someone registers on the platform
 version: 1.0
 date_created: 2026-03-10
-status: 'Planned'
+status: 'Completed'
 tags: [feature, architecture, email, auth]
 ---
 
 # Introduction
 
-![Status: Planned](https://img.shields.io/badge/status-Planned-blue)
+![Status: Completed](https://img.shields.io/badge/status-Completed-brightgreen)
 
 This plan outlines the implementation of an automated email sent via Resend whenever a new user registers on the platform. The application runs on Cloudflare's free tier, using the domain `qaldas.com`.
 
@@ -28,10 +28,10 @@ This plan outlines the implementation of an automated email sent via Resend when
 
 | Task | Description | Completed | Date |
 |------|-------------|-----------|------|
-| TASK-001 | Add `qaldas.com` domain in the Resend dashboard. | | |
-| TASK-002 | Verify the domain by adding DKIM/SPF DNS records in Cloudflare's DNS settings. | | |
-| TASK-003 | Generate a Resend API Key. | | |
-| TASK-004 | Add `RESEND_API_KEY` to local `.env.local` and Cloudflare Pages/Workers secrets. | | |
+| TASK-001 | Add `qaldas.com` domain in the Resend dashboard. | ✅ | 2026-03-10 |
+| TASK-002 | Verify the domain by adding DKIM/SPF DNS records in Cloudflare's DNS settings. | ✅ | 2026-03-10 |
+| TASK-003 | Generate a Resend API Key. | ✅ | 2026-03-10 |
+| TASK-004 | Add `RESEND_API_KEY` to local `.env.local` and Cloudflare Pages/Workers secrets. | ✅ | 2026-03-10 |
 
 ### Implementation Phase 2: Email Service Integration
 
@@ -39,10 +39,10 @@ This plan outlines the implementation of an automated email sent via Resend when
 
 | Task | Description | Completed | Date |
 |------|-------------|-----------|------|
-| TASK-005 | Install the `resend` package using `pnpm add resend`. | | |
-| TASK-006 | Create an email template component (e.g., `components/emails/WelcomeEmail.tsx` or raw HTML). | | |
-| TASK-007 | Update the server-side registration logic (e.g., Next.js Server Action or Route Handler) to trigger `resend.emails.send(...)` upon successful user creation. | | |
-| TASK-008 | Enhance `AuthModal.tsx` to handle the successful registration state and notify the user to check their email. | | |
+| TASK-005 | Install the `resend` package using `pnpm add resend`. | ✅ | 2026-03-10 |
+| TASK-006 | Create an email template component (e.g., `components/emails/WelcomeEmail.tsx` or raw HTML). | ✅ | 2026-03-10 |
+| TASK-007 | Update the server-side registration logic (e.g., Next.js Server Action or Route Handler) to trigger `resend.emails.send(...)` upon successful user creation. | ✅ | 2026-03-10 |
+| TASK-008 | Enhance `AuthModal.tsx` to handle the successful registration state and notify the user to check their email. | ✅ | 2026-03-10 |
 
 ## 3. Technical Considerations
 
