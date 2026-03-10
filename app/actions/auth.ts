@@ -7,8 +7,8 @@ import { initializeLucia } from "@/lib/auth";
 import { generateIdFromEntropySize } from "lucia";
 
 // Helper function to safely get our Cloudflare bindings
-function getDB() {
-  const { env } = getCloudflareContext() as unknown as { env: { DB: D1Database } };
+async function getDB() {
+  const { env } = await getCloudflareContext({ async: true }) as unknown as { env: { DB: D1Database } };
   return env.DB;
 }
 
@@ -25,7 +25,7 @@ export async function registerUser(formData: FormData) {
     return { error: "Entrada inválida" };
   }
 
-  const db = getDB();
+  const db = await getDB();
 
   // Create password hash (using Scrypt optimized for Edge/WebCrypto compatibility)
   const scrypt = new Scrypt();
@@ -71,7 +71,7 @@ export async function loginUser(formData: FormData) {
     return { error: "Entrada inválida" };
   }
 
-  const db = getDB();
+  const db = await getDB();
 
   try {
     const user = await db.prepare("SELECT * FROM users WHERE email = ?").bind(email).first<{ id: string, password_hash: string }>();
@@ -103,7 +103,7 @@ export async function loginUser(formData: FormData) {
 }
 
 export async function logoutUser() {
-  const db = getDB();
+  const db = await getDB();
   const lucia = initializeLucia(db);
   
   const cookieStore = await cookies();

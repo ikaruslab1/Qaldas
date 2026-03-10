@@ -46,7 +46,7 @@ export function initializeLucia(D1: D1Database) {
 }
 
 export const validateRequest = cache(async (): Promise<{ user: User; session: Session } | { user: null; session: null }> => {
-  const { env } = getCloudflareContext() as unknown as { env: { DB: D1Database } };
+  const { env } = await getCloudflareContext({ async: true }) as unknown as { env: { DB: D1Database } };
   const db = env.DB;
   const lucia = initializeLucia(db);
 
