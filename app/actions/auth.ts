@@ -65,6 +65,7 @@ export async function registerUser(formData: FormData) {
         from: 'Qaldas <onboarding@qaldas.com>',
         to: [email],
         subject: '¡Bienvenido a Qaldas!',
+        // @ts-expect-error - Incompatibilidad de tipos entre React 19 y Resend
         react: WelcomeEmail({ firstName }),
       });
     } catch (emailError) {
