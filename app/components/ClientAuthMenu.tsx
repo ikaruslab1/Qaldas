@@ -15,6 +15,7 @@ type UserType = {
 
 export default function ClientAuthMenu({ user }: { user: UserType }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleLogout = async () => {
     await logoutUser();
@@ -46,7 +47,11 @@ export default function ClientAuthMenu({ user }: { user: UserType }) {
 
   // Si está autenticado
   return (
-    <div className="relative group ml-6">
+    <div 
+      className="relative ml-6"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <motion.button 
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -59,31 +64,37 @@ export default function ClientAuthMenu({ user }: { user: UserType }) {
       </motion.button>
 
       {/* Menú Dropdown Estilo Cyber/Tech */}
-      <motion.div 
-        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-        whileInView={{ opacity: 0, y: 10, scale: 0.95 }} // Reset when not hovered (handled by group-hover generally but we can let CSS handle visibility/opacity and framer motion handle initial load)
-        className="absolute right-0 mt-0 w-48 bg-black-main border border-primary/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 origin-top-right"
-      >
-        <div className="absolute -top-[1px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-        <div className="p-3">
-          <p className="text-[10px] uppercase text-primary/50 tracking-widest mb-1 border-b border-primary/20 pb-1">Active Identity</p>
-          <p className="text-white text-xs truncate max-w-full">{user.email}</p>
-        </div>
-        <ul className="flex flex-col text-sm border-t border-primary/10">
-          <li>
-            <a href="/profile" className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-primary/10 hover:border-l-2 hover:border-primary transition-all">
-              <span className="material-symbols-outlined text-[16px]">admin_panel_settings</span>
-              Analytics & Profile
-            </a>
-          </li>
-          <li className="border-t border-primary/10">
-            <button onClick={handleLogout} className="w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-red-400 hover:bg-red-500/10 hover:border-l-2 hover:border-red-500 transition-all text-left">
-              <span className="material-symbols-outlined text-[16px]">logout</span>
-              Disconnect
-            </button>
-          </li>
-        </ul>
-      </motion.div>
+      <AnimatePresence>
+        {isHovered && (
+          <motion.div 
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="absolute right-0 mt-2 w-48 bg-black-main border border-primary/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)] z-50 origin-top-right"
+          >
+            <div className="absolute -top-[1px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+            <div className="p-3">
+              <p className="text-[10px] uppercase text-primary/50 tracking-widest mb-1 border-b border-primary/20 pb-1">Active Identity</p>
+              <p className="text-white text-xs truncate max-w-full">{user.email}</p>
+            </div>
+            <ul className="flex flex-col text-sm border-t border-primary/10">
+              <li>
+                <a href="/profile" className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-primary/10 hover:border-l-2 hover:border-primary transition-all">
+                  <span className="material-symbols-outlined text-[16px]">admin_panel_settings</span>
+                  Analytics & Profile
+                </a>
+              </li>
+              <li className="border-t border-primary/10">
+                <button onClick={handleLogout} className="w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-red-400 hover:bg-red-500/10 hover:border-l-2 hover:border-red-500 transition-all text-left">
+                  <span className="material-symbols-outlined text-[16px]">logout</span>
+                  Disconnect
+                </button>
+              </li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
