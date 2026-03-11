@@ -17,6 +17,7 @@
     "@lucia-auth/adapter-sqlite": "^3.0.2",
     "aos": "^2.3.4",
     "flag": "^5.0.1",
+    "framer-motion": "^12.35.2",
     "gsap": "^3.14.2",
     "lucia": "^3.2.2",
     "next": "16.1.2",

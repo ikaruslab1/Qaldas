@@ -3,6 +3,7 @@
 import { useState } from "react";
 import AuthModal from "./AuthModal";
 import { logoutUser } from "@/app/actions/auth";
+import { motion, AnimatePresence } from "framer-motion";
 
 type UserType = {
   id: string;
@@ -46,15 +47,23 @@ export default function ClientAuthMenu({ user }: { user: UserType }) {
   // Si está autenticado
   return (
     <div className="relative group ml-6">
-      <button className="flex items-center gap-2 px-4 py-2 border border-primary/40 bg-black-surface/50 text-white font-mono text-sm tracking-widest hover:border-primary transition-colors cursor-crosshair">
+      <motion.button 
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="flex items-center gap-2 px-4 py-2 border border-primary/40 bg-black-surface/50 text-white font-mono text-sm tracking-widest hover:border-primary transition-colors cursor-crosshair"
+      >
         <span className="material-symbols-outlined text-primary text-sm">person</span>
         <span className="truncate max-w-[100px]">{user.name || user.email?.split('@')[0]}</span>
         <span className="px-1.5 py-0.5 bg-primary/10 text-primary text-[10px] ml-1">{user.role}</span>
         <span className="material-symbols-outlined text-xs mt-[1px] ml-1">arrow_drop_down</span>
-      </button>
+      </motion.button>
 
       {/* Menú Dropdown Estilo Cyber/Tech */}
-      <div className="absolute right-0 mt-0 w-48 bg-black-main border border-primary/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+      <motion.div 
+        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+        whileInView={{ opacity: 0, y: 10, scale: 0.95 }} // Reset when not hovered (handled by group-hover generally but we can let CSS handle visibility/opacity and framer motion handle initial load)
+        className="absolute right-0 mt-0 w-48 bg-black-main border border-primary/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 origin-top-right"
+      >
         <div className="absolute -top-[1px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent"></div>
         <div className="p-3">
           <p className="text-[10px] uppercase text-primary/50 tracking-widest mb-1 border-b border-primary/20 pb-1">Active Identity</p>
@@ -74,7 +83,7 @@ export default function ClientAuthMenu({ user }: { user: UserType }) {
             </button>
           </li>
         </ul>
-      </div>
+      </motion.div>
     </div>
   );
 }

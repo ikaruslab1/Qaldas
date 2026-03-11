@@ -1,5 +1,7 @@
 import Hero from "./ui/hero"
 import Navbar from "./components/Navbar"
+import { AnimatedContainer } from "./components/AnimatedContainer"
+import { AnimatedIcon } from "./components/AnimatedIcon"
 
 export default function Home() {
   return (
@@ -26,31 +28,36 @@ export default function Home() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 relative min-h-[80vh] flex flex-col justify-center py-24">
 
             <div className="lg:w-full relative z-10">
-                <div className="inline-flex items-center gap-3 px-4 py-1.5 border-l-2 border-primary bg-gradient-to-r from-primary/10 to-transparent text-primary text-xs font-mono mb-8 tracking-widest animate-glitch">
-                    <span className="w-1.5 h-1.5 bg-primary shadow-[0_0_10px_#00ff41] animate-pulse"></span>
-                    {/* <span>NODE CONNECTED: <span className="text-white">LIVE_STREAM</span></span> */}
-                </div>
-                <h1 className="font-display text-6xl sm:text-7xl lg:text-8xl font-bold leading-[0.9] mb-8 text-white tracking-tight drop-shadow-2xl">
-                    Solving Community-Centered Challenges with Innovation from <br/>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary bg-[length:200%_auto] animate-[gradient_3s_linear_infinite]">Quantum, Classical, & AI</span>
-                    
-                </h1>
-                <p className="text-lg sm:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12 font-light border-l-2 border-primary/50 pl-6 bg-gradient-to-r from-primary/5 to-transparent py-2">
-                    We are bridging the gap between theoretical physics and applied engineering. Solving humanity's most complex challenges through <span className="text-primary font-medium">quantum computing</span> and <span className="text-primary font-medium">AI innovation</span>.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-6">
-                    
-                    <a className="group relative inline-flex items-center justify-center px-10 py-5 font-bold text-lg text-black-main transition-all duration-300 bg-primary clip-corner hover:bg-white hover:shadow-[0_0_30px_rgba(0,255,65,0.6)]" href="#">
-                        <span className="absolute inset-0 w-full h-full border border-white/50 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        <span className="relative flex items-center gap-3 uppercase tracking-widest">
-                            Initialize Research
-                            <span className="material-symbols-outlined text-2xl group-hover:translate-x-1 transition-transform">terminal</span>
-                        </span>
-                        <span className="absolute top-0 left-0 w-2 h-2 border-l-2 border-t-2 border-black-main"></span>
-                        <span className="absolute bottom-0 right-0 w-2 h-2 border-r-2 border-b-2 border-black-main"></span>
-                    </a>
-                  
-                </div>
+                <AnimatedContainer animation="fadeInDown" delay={0.1}>
+                    <div className="inline-flex items-center gap-3 px-4 py-1.5 border-l-2 border-primary bg-gradient-to-r from-primary/10 to-transparent text-primary text-xs font-mono mb-8 tracking-widest animate-glitch">
+                        <span className="w-1.5 h-1.5 bg-primary shadow-[0_0_10px_#00ff41] animate-pulse"></span>
+                        {/* <span>NODE CONNECTED: <span className="text-white">LIVE_STREAM</span></span> */}
+                    </div>
+                </AnimatedContainer>
+                <AnimatedContainer animation="fadeInUp" delay={0.3}>
+                    <h1 className="font-display text-6xl sm:text-7xl lg:text-8xl font-bold leading-[0.9] mb-8 text-white tracking-tight drop-shadow-2xl">
+                        Solving Community-Centered Challenges with Innovation from <br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary bg-[length:200%_auto] animate-[gradient_3s_linear_infinite]">Quantum, Classical, & AI</span>
+                    </h1>
+                </AnimatedContainer>
+                <AnimatedContainer animation="fadeInUp" delay={0.5}>
+                    <p className="text-lg sm:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12 font-light border-l-2 border-primary/50 pl-6 bg-gradient-to-r from-primary/5 to-transparent py-2">
+                        We are bridging the gap between theoretical physics and applied engineering. Solving humanity's most complex challenges through <span className="text-primary font-medium">quantum computing</span> and <span className="text-primary font-medium">AI innovation</span>.
+                    </p>
+                </AnimatedContainer>
+                <AnimatedContainer animation="fadeInUp" delay={0.7}>
+                    <div className="flex flex-col sm:flex-row gap-6">
+                        <a className="group relative inline-flex items-center justify-center px-10 py-5 font-bold text-lg text-black-main transition-all duration-300 bg-primary clip-corner hover:bg-white hover:shadow-[0_0_30px_rgba(0,255,65,0.6)]" href="#">
+                            <span className="absolute inset-0 w-full h-full border border-white/50 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                            <span className="relative flex items-center gap-3 uppercase tracking-widest">
+                                Initialize Research
+                                <AnimatedIcon><span className="material-symbols-outlined text-2xl group-hover:translate-x-1 transition-transform">terminal</span></AnimatedIcon>
+                            </span>
+                            <span className="absolute top-0 left-0 w-2 h-2 border-l-2 border-t-2 border-black-main"></span>
+                            <span className="absolute bottom-0 right-0 w-2 h-2 border-r-2 border-b-2 border-black-main"></span>
+                        </a>
+                    </div>
+                </AnimatedContainer>
                 
                 {/* <div className="mt-16 grid grid-cols-3 gap-8 border-t border-white/10 pt-8 max-w-lg">
                     <div>
@@ -72,7 +79,7 @@ export default function Home() {
 
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <AnimatedContainer animation="fadeInUp" className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="lg:col-span-7 space-y-12">
                     <div>
                         <h2 className="font-display text-4xl font-bold text-white mb-8 flex items-center gap-4">
@@ -96,7 +103,7 @@ export default function Home() {
                         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
                         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
                         <h3 className="font-display text-2xl font-bold text-primary mb-4 uppercase tracking-wide flex items-center gap-3">
-                            <span className="material-symbols-outlined text-lg">visibility</span>
+                            <AnimatedIcon delay={0.2}><span className="material-symbols-outlined text-lg">visibility</span></AnimatedIcon>
                             Our Vision
                         </h3>
                         <p className="text-gray-400 leading-relaxed z-10 relative">
@@ -110,7 +117,7 @@ export default function Home() {
                         <div className="bg-black-surface p-8 border border-primary/10 relative overflow-hidden h-full">
                             <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
                             <h3 className="font-display text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                                <span className="material-symbols-outlined text-primary text-3xl">flag</span>
+                                <AnimatedIcon delay={0.4}><span className="material-symbols-outlined text-primary text-3xl">flag</span></AnimatedIcon>
                                 <span className="text-shadow-neon">Our Mission</span>
                             </h3>
                             <div className="space-y-6">
@@ -139,63 +146,65 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </AnimatedContainer>
         </section>
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
-            <h2 className="font-display text-4xl font-bold text-white mb-16 text-center">
-                Strategic <span className="text-primary text-shadow-neon">Pillars</span>
-            </h2>
+            <AnimatedContainer animation="fadeInDown" delay={0.1}>
+                <h2 className="font-display text-4xl font-bold text-white mb-16 text-center">
+                    Strategic <span className="text-primary text-shadow-neon">Pillars</span>
+                </h2>
+            </AnimatedContainer>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="group relative p-6 bg-black-surface border border-surface-border hover:border-primary transition-all duration-300 hover:shadow-neon hover:-translate-y-2">
+                <AnimatedContainer delay={0.2} animation="fadeInUp" className="group relative p-6 bg-black-surface border border-surface-border hover:border-primary transition-all duration-300 hover:shadow-neon hover:-translate-y-2">
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="w-14 h-14 bg-black border border-primary/30 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                    <AnimatedIcon delay={0.3} className="w-14 h-14 bg-black border border-primary/30 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
                         <span className="material-symbols-outlined text-2xl">science</span>
-                    </div>
+                    </AnimatedIcon>
                     <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">Research</h3>
                     <p className="text-sm text-gray-400 leading-relaxed mb-4">
                         Exploring frontiers in quantum computing, AI, and cryptography.
                     </p>
                     <div className="w-full h-[1px] bg-primary/20 group-hover:bg-primary/50 transition-colors"></div>
-                </div>
-                <div className="group relative p-6 bg-black-surface border border-surface-border hover:border-primary transition-all duration-300 hover:shadow-neon hover:-translate-y-2">
+                </AnimatedContainer>
+                <AnimatedContainer delay={0.4} animation="fadeInUp" className="group relative p-6 bg-black-surface border border-surface-border hover:border-primary transition-all duration-300 hover:shadow-neon hover:-translate-y-2">
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="w-14 h-14 bg-black border border-primary/30 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                    <AnimatedIcon delay={0.5} className="w-14 h-14 bg-black border border-primary/30 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
                         <span className="material-symbols-outlined text-2xl">school</span>
-                    </div>
+                    </AnimatedIcon>
                     <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">Education</h3>
                     <p className="text-sm text-gray-400 leading-relaxed mb-4">
                         Accessible learning, workshops, and mentoring for local talent.
                     </p>
                     <div className="w-full h-[1px] bg-primary/20 group-hover:bg-primary/50 transition-colors"></div>
-                </div>
-                <div className="group relative p-6 bg-black-surface border border-surface-border hover:border-primary transition-all duration-300 hover:shadow-neon hover:-translate-y-2">
+                </AnimatedContainer>
+                <AnimatedContainer delay={0.6} animation="fadeInUp" className="group relative p-6 bg-black-surface border border-surface-border hover:border-primary transition-all duration-300 hover:shadow-neon hover:-translate-y-2">
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="w-14 h-14 bg-black border border-primary/30 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                    <AnimatedIcon delay={0.7} className="w-14 h-14 bg-black border border-primary/30 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
                         <span className="material-symbols-outlined text-2xl">memory</span>
-                    </div>
+                    </AnimatedIcon>
                     <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">Hardware</h3>
                     <p className="text-sm text-gray-400 leading-relaxed mb-4">
                         Integrating classical and quantum systems for complex challenges.
                     </p>
                     <div className="w-full h-[1px] bg-primary/20 group-hover:bg-primary/50 transition-colors"></div>
-                </div>
-                <div className="group relative p-6 bg-black-surface border border-surface-border hover:border-primary transition-all duration-300 hover:shadow-neon hover:-translate-y-2">
+                </AnimatedContainer>
+                <AnimatedContainer delay={0.8} animation="fadeInUp" className="group relative p-6 bg-black-surface border border-surface-border hover:border-primary transition-all duration-300 hover:shadow-neon hover:-translate-y-2">
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="w-14 h-14 bg-black border border-primary/30 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                    <AnimatedIcon delay={0.9} className="w-14 h-14 bg-black border border-primary/30 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
                         <span className="material-symbols-outlined text-2xl">insights</span>
-                    </div>
+                    </AnimatedIcon>
                     <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">Consulting</h3>
                     <p className="text-sm text-gray-400 leading-relaxed mb-4">
                         Strategic advice and proof-of-concept development for organizations.
                     </p>
                     <div className="w-full h-[1px] bg-primary/20 group-hover:bg-primary/50 transition-colors"></div>
-                </div>
+                </AnimatedContainer>
             </div>
         </section>
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 space-y-20">
-            <div className="relative pl-8 border-l border-primary/30">
+            <AnimatedContainer delay={0.1} animation="slideInLeft" className="relative pl-8 border-l border-primary/30">
                 <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-primary shadow-neon"></div>
                 <h3 className="font-display text-2xl font-bold text-white mb-8">Research Areas <span className="text-primary text-sm font-mono ml-4">// ACTIVE PROTOCOLS</span></h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -212,9 +221,9 @@ export default function Home() {
                         <p className="text-sm text-gray-400">Hybrid classical-quantum software stacks for industrial applications.</p>
                     </div>
                 </div>
-            </div>
+            </AnimatedContainer>
 
-            <div className="relative pl-8 border-l border-primary/30">
+            <AnimatedContainer delay={0.3} animation="slideInLeft" className="relative pl-8 border-l border-primary/30">
                 <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-primary shadow-neon"></div>
                 <h3 className="font-display text-2xl font-bold text-white mb-8">Continuing Education <span className="text-primary text-sm font-mono ml-4">// KNOWLEDGE TRANSFER</span></h3>
                 <div className="flex flex-wrap gap-4 text-sm font-mono uppercase tracking-wider">
@@ -222,9 +231,9 @@ export default function Home() {
                     <span className="px-4 py-3 bg-black-surface text-gray-400 border border-white/10 hover:border-primary/30 transition-colors cursor-crosshair">Online Delivery</span>
                     <span className="px-4 py-3 bg-black-surface text-gray-400 border border-white/10 hover:border-primary/30 transition-colors cursor-crosshair">Community Engagement</span>
                 </div>
-            </div>
+            </AnimatedContainer>
 
-            <div className="relative pl-8 border-l border-primary/30">
+            <AnimatedContainer delay={0.5} animation="slideInLeft" className="relative pl-8 border-l border-primary/30">
                 <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-primary shadow-neon"></div>
                 <h3 className="font-display text-2xl font-bold text-white mb-8">Consulting Services <span className="text-primary text-sm font-mono ml-4">// ENTERPRISE SOLUTIONS</span></h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -241,7 +250,7 @@ export default function Home() {
                         <p className="text-sm text-gray-500">Secure integration with governance, compliance, and training.</p>
                     </div>
                 </div>
-            </div>
+            </AnimatedContainer>
         </section>
     </main>
 

@@ -1,6 +1,8 @@
 import { validateRequest } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Navbar from "@/app/components/Navbar";
+import { AnimatedContainer } from "@/app/components/AnimatedContainer";
+import { AnimatedIcon } from "@/app/components/AnimatedIcon";
 
 export default async function ProfilePage() {
   const { user: luciaUser } = await validateRequest();
@@ -30,7 +32,7 @@ export default async function ProfilePage() {
       <main className="relative z-10 pt-40 pb-20 min-h-screen flex items-center justify-center px-4">
         
         {/* Main Dashboard Container */}
-        <div className="w-full max-w-5xl bg-black-surface/80 border border-primary/20 backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.8)] relative overflow-hidden group">
+        <AnimatedContainer animation="scaleIn" delay={0.1} className="w-full max-w-5xl bg-black-surface/80 border border-primary/20 backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.8)] relative overflow-hidden group">
           
           {/* Aesthetic Cyber Lines & Corners */}
           <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
@@ -46,9 +48,9 @@ export default async function ProfilePage() {
             <div className="md:col-span-4 border-r border-primary/10 p-8 flex flex-col items-center justify-center bg-black/40">
               
               <div className="relative mb-8 group-hover:scale-105 transition-transform duration-700">
-                <div className="w-40 h-40 rounded-full border border-primary/40 bg-black flex items-center justify-center relative z-10 shadow-neon">
+                <AnimatedIcon delay={0.4} className="w-40 h-40 rounded-full border border-primary/40 bg-black flex items-center justify-center relative z-10 shadow-neon">
                   <span className="material-symbols-outlined text-6xl text-primary/70">shield_person</span>
-                </div>
+                </AnimatedIcon>
                 {/* Orbital rings */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-primary/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 border border-primary/10 rounded-full border-dashed animate-[spin_15s_linear_infinite_reverse]"></div>
@@ -99,32 +101,36 @@ export default async function ProfilePage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Card 1 */}
-                  <div className="p-6 bg-black border border-white/5 hover:border-primary/40 transition-colors group/card relative overflow-hidden">
-                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover/card:opacity-100 transition-opacity"></div>
-                    <span className="material-symbols-outlined text-primary mb-4 text-3xl">terminal</span>
-                    <h3 className="text-lg font-bold text-white mb-2 font-display">Node Connection</h3>
-                    <p className="text-xs text-gray-400 leading-relaxed font-light">Access to quantum simulators and integration terminals. Restricted interface for the local network.</p>
-                    <div className="mt-4 flex items-center gap-2 text-xs text-primary font-mono opacity-0 group-hover/card:opacity-100 transition-opacity transform translate-y-2 group-hover/card:translate-y-0">
-                      <span>INITIATE</span> <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                  <AnimatedContainer delay={0.5} animation="slideInRight" className="h-full">
+                    <div className="h-full p-6 bg-black border border-white/5 hover:border-primary/40 transition-colors group/card relative overflow-hidden">
+                      <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover/card:opacity-100 transition-opacity"></div>
+                      <AnimatedIcon delay={0.7} className="mb-4"><span className="material-symbols-outlined text-primary text-3xl">terminal</span></AnimatedIcon>
+                      <h3 className="text-lg font-bold text-white mb-2 font-display">Node Connection</h3>
+                      <p className="text-xs text-gray-400 leading-relaxed font-light">Access to quantum simulators and integration terminals. Restricted interface for the local network.</p>
+                      <div className="mt-4 flex items-center gap-2 text-xs text-primary font-mono opacity-0 group-hover/card:opacity-100 transition-opacity transform translate-y-2 group-hover/card:translate-y-0">
+                        <span>INITIATE</span> <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                      </div>
                     </div>
-                  </div>
+                  </AnimatedContainer>
 
                   {/* Card 2 */}
-                  <div className="p-6 bg-black border border-white/5 hover:border-primary/40 transition-colors group/card relative overflow-hidden">
-                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover/card:opacity-100 transition-opacity"></div>
-                    <span className="material-symbols-outlined text-primary mb-4 text-3xl">psychology</span>
-                    <h3 className="text-lg font-bold text-white mb-2 font-display">IAM Algorithms</h3>
-                    <p className="text-xs text-gray-400 leading-relaxed font-light">Supervision of active Deep Learning networks. Auto-tuning parameters and convolutional weights.</p>
-                    <div className="mt-4 flex items-center gap-2 text-xs text-primary font-mono opacity-0 group-hover/card:opacity-100 transition-opacity transform translate-y-2 group-hover/card:translate-y-0">
-                      <span>MONITOR</span> <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                  <AnimatedContainer delay={0.7} animation="slideInRight" className="h-full">
+                    <div className="h-full p-6 bg-black border border-white/5 hover:border-primary/40 transition-colors group/card relative overflow-hidden">
+                      <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover/card:opacity-100 transition-opacity"></div>
+                      <AnimatedIcon delay={0.9} className="mb-4"><span className="material-symbols-outlined text-primary text-3xl">psychology</span></AnimatedIcon>
+                      <h3 className="text-lg font-bold text-white mb-2 font-display">IAM Algorithms</h3>
+                      <p className="text-xs text-gray-400 leading-relaxed font-light">Supervision of active Deep Learning networks. Auto-tuning parameters and convolutional weights.</p>
+                      <div className="mt-4 flex items-center gap-2 text-xs text-primary font-mono opacity-0 group-hover/card:opacity-100 transition-opacity transform translate-y-2 group-hover/card:translate-y-0">
+                        <span>MONITOR</span> <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                      </div>
                     </div>
-                  </div>
+                  </AnimatedContainer>
                 </div>
 
               </div>
 
               {/* Console logs visual logic */}
-              <div className="mt-12 w-full h-32 bg-black/80 border border-primary/20 p-4 font-mono text-[10px] text-primary/60 overflow-hidden relative">
+              <AnimatedContainer delay={1.1} animation="fadeInUp" className="mt-12 w-full h-32 bg-black/80 border border-primary/20 p-4 font-mono text-[10px] text-primary/60 overflow-hidden relative">
                 <div className="absolute top-0 right-0 p-1 bg-primary/20 text-primary">SYS_LOG</div>
                 <div className="space-y-1 opacity-70">
                   <p>{`>`} Initializing secure connection...</p>
@@ -133,12 +139,11 @@ export default async function ProfilePage() {
                   <p>{`>`} Loading workspace partitions...</p>
                   <p className="text-white animate-pulse">{`>`} System Ready. Awaiting input _</p>
                 </div>
-              </div>
+              </AnimatedContainer>
 
             </div>
-
           </div>
-        </div>
+        </AnimatedContainer>
       </main>
     </>
   );

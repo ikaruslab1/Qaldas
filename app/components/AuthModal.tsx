@@ -2,6 +2,8 @@
 
 import { useState, useTransition } from "react";
 import { loginUser, registerUser } from "@/app/actions/auth";
+import { motion, AnimatePresence } from "framer-motion";
+import { TypingAnimation } from "./TypingAnimation";
 
 export default function AuthModal({ 
   isOpen, 
@@ -18,8 +20,6 @@ export default function AuthModal({
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<{ email?: string, password?: string }>({});
-
-  if (!isOpen) return null;
 
   async function handleSubmit(formData: FormData) {
     setMessage(null);
@@ -77,11 +77,25 @@ export default function AuthModal({
   }
 
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-in fade-in duration-300 overflow-y-auto">
-      {/* Main Container - Black Frame */}
-      <div className="relative flex w-full max-w-[1000px] min-h-[600px] bg-[#0a0a0a] rounded-xl overflow-hidden shadow-2xl scale-100 animate-in zoom-in-95 duration-300 border border-[#222] my-auto">
-        
-        {/* close button */}
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed top-0 left-0 w-screen h-screen z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 overflow-y-auto"
+        >
+          {/* Main Container - Black Frame */}
+          <motion.div 
+            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="relative flex w-full max-w-[1000px] min-h-[600px] bg-[#0a0a0a] rounded-xl overflow-hidden shadow-2xl border border-[#222] my-auto"
+          >
+            
+            {/* close button */}
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 z-50 text-gray-400 hover:text-white transition-colors flex items-center justify-center p-2 rounded-full hover:bg-white/10"
@@ -144,8 +158,11 @@ export default function AuthModal({
         </div>
 
         {/* --- RIGHT SECTION --- */}
-        <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center overflow-y-auto bg-[#0a0a0a]">
-          <div className="max-w-[360px] w-full mx-auto">
+        <div className="relative w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center overflow-y-auto bg-gradient-to-br from-[#0a2e1d]/40 to-black-surface border-l border-[#222]">
+          {/* Noise overlay right panel */}
+          <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noiseFilter\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.85\" numOctaves=\"3\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100%25\" height=\"100%25\" filter=\"url(%23noiseFilter)\"/%3E%3C/svg%3E')" }}></div>
+          
+          <div className="relative z-10 max-w-[360px] w-full mx-auto">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-semibold text-white mb-2">{isLogin ? "Log In Account" : "Sign Up Account"}</h3>
               <p className="text-[#888] text-xs">
@@ -182,7 +199,9 @@ export default function AuthModal({
               {!isLogin && (
                 <div className="flex gap-4">
                   <div className="flex-1 space-y-2">
-                    <label className="text-[11px] text-[#a3a3a3] block">First Name</label>
+                    <label className="text-[11px] text-[#a3a3a3] block h-4">
+                      <TypingAnimation text="First Name" />
+                    </label>
                     <input 
                       type="text" 
                       name="firstName" 
@@ -192,7 +211,9 @@ export default function AuthModal({
                     />
                   </div>
                   <div className="flex-1 space-y-2">
-                    <label className="text-[11px] text-[#a3a3a3] block">Last Name</label>
+                    <label className="text-[11px] text-[#a3a3a3] block h-4">
+                      <TypingAnimation text="Last Name" delay={0.2} />
+                    </label>
                     <input 
                       type="text" 
                       name="lastName" 
@@ -205,7 +226,9 @@ export default function AuthModal({
               )}
 
               <div className="space-y-2">
-                 <label className="text-[11px] text-[#a3a3a3] block">Email</label>
+                 <label className="text-[11px] text-[#a3a3a3] block h-4">
+                    <TypingAnimation text="Email" delay={isLogin ? 0 : 0.4} />
+                 </label>
                  <input 
                     type="email" 
                     name="email" 
@@ -217,7 +240,9 @@ export default function AuthModal({
 
               {!isLogin && (
                 <div className="space-y-2">
-                   <label className="text-[11px] text-[#a3a3a3] block">Confirm Email</label>
+                   <label className="text-[11px] text-[#a3a3a3] block h-4">
+                      <TypingAnimation text="Confirm Email" delay={0.6} />
+                   </label>
                    <input 
                       type="email" 
                       name="confirmEmail" 
@@ -235,7 +260,9 @@ export default function AuthModal({
               )}
 
               <div className="space-y-2">
-                 <label className="text-[11px] text-[#a3a3a3] block">Password</label>
+                 <label className="text-[11px] text-[#a3a3a3] block h-4">
+                    <TypingAnimation text="Password" delay={isLogin ? 0.2 : 0.8} />
+                 </label>
                  <div className="relative">
                     <input 
                       type={showPassword ? "text" : "password"} 
@@ -259,7 +286,9 @@ export default function AuthModal({
 
               {!isLogin && (
                 <div className="space-y-2">
-                   <label className="text-[11px] text-[#a3a3a3] block">Confirm Password</label>
+                   <label className="text-[11px] text-[#a3a3a3] block h-4">
+                      <TypingAnimation text="Confirm Password" delay={1.0} />
+                   </label>
                    <div className="relative">
                       <input 
                         type={showConfirmPassword ? "text" : "password"} 
@@ -323,7 +352,9 @@ export default function AuthModal({
             
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+      </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

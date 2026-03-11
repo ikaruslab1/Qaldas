@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "Frontend Responsive Design Standards": {
+      "source": "am-will/codex-skills",
+      "sourceType": "github",
+      "computedHash": "e01516e24ba086a603fdf753f9b4e428a3684fbf3010b9295352202fd3461fa8"
+    },
     "breakdown-feature-implementation": {
       "source": "github/awesome-copilot",
       "sourceType": "github",
@@ -20,6 +25,11 @@
       "source": "vercel-labs/skills",
       "sourceType": "github",
       "computedHash": "25872a21881a950edc3db1f3329664d60405d539660ce05b3265db2de06a7dfd"
+    },
+    "framer-motion-animator": {
+      "source": "patricio0312rev/skills",
+      "sourceType": "github",
+      "computedHash": "22a8401fab0cdf32d5c153b98aba5e95435a479810896879535dc7ac3710efbe"
     },
     "frontend-design": {
       "source": "anthropics/skills",
